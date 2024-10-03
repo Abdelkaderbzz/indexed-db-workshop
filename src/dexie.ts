@@ -13,6 +13,7 @@ class TodoDatabase extends Dexie {
 // Create a new database instance
 const db = new TodoDatabase();
 
+
 // Define the Todo type
 export type TodoType = Omit<Todo, 'id'>;
 
@@ -25,7 +26,7 @@ export const getTodos = async (): Promise<Todo[]> =>
 
 // Function to add a new todo
 export const addTodo = async (todo: Omit<Todo, 'id'>) => {
-  console.log(todo);
+  return await db.todos.add(todo); // Add a new todo
 };
 
 // Function to delete a todo
