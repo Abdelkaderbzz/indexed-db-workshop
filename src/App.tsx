@@ -9,7 +9,6 @@ import {
 } from './dexie';
 import './App.css';
 
-// Define the Todo interface
 export interface Todo {
   id: number;
   text: string;
@@ -23,7 +22,6 @@ function App() {
   const [filterType, setFilterType] = useState('');
 
   useEffect(() => {
-    // Fetch all todos when the component loads initially
     const fetchTodos = async () => {
       const savedTodos = await getTodos();
       setTodos(savedTodos);
@@ -35,23 +33,21 @@ function App() {
     if (newTodo.trim()) {
       const todo: Omit<Todo, 'id'> = { text: newTodo, completed: false };
       await addTodo(todo);
-      setTodos(await getTodos()); // Refresh the todo list after adding
-      setNewTodo(''); // Clear the input field
+      setTodos(await getTodos());
+      setNewTodo('');
     }
   };
 
   const handleDeleteTodo = async (id: number) => {
     await deleteTodo(id);
-    setTodos(await getTodos()); // Refresh the todo list after deletion
+    setTodos(await getTodos());
   };
 
   const handleSearch = async (searchTerm: string) => {
     setSearch(searchTerm);
     if (searchTerm.trim() === '') {
-      // If search term is empty, load all todos
       setTodos(await getTodos());
     } else {
-      // Search todos in the IndexedDB
       const searchedTodos = await searchTodos(searchTerm);
       setTodos(searchedTodos);
     }
@@ -64,8 +60,7 @@ function App() {
     setFilterType(type);
     if (type === 'all') {
       setTodos(await getTodos());
-    } else if (type === 'todo')
-    {
+    } else if (type === 'todo') {
       setTodos(await filterTodosByCompleted(false));
     } else {
       setTodos(await filterTodosByCompleted(true));
@@ -107,16 +102,14 @@ function App() {
           />
         </div>
       </div>
-      {/* Search Input */}
       <input
         type='text'
         value={search}
-        onChange={(e) => handleSearch(e.target.value)} // Search while typing
+        onChange={(e) => handleSearch(e.target.value)}
         placeholder='Search tasks...'
         style={{ width: '100%', padding: '10px', marginBottom: '10px' }}
       />
 
-      {/* Add To-Do Input */}
       <input
         type='text'
         value={newTodo}
@@ -131,7 +124,6 @@ function App() {
         Add Todo
       </button>
 
-      {/* To-Do List */}
       <ul style={{ marginTop: '20px', listStyleType: 'none', padding: 0 }}>
         {todos.map((todo) => (
           <li
