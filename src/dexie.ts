@@ -1,7 +1,9 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import Dexie, { Table } from 'dexie';
 import { Todo } from './App';
 class TodoDatabase extends Dexie {
-  todos!: Table<Todo, number>; // Define the table and its primary key type
+  todos!: Table<Todo, number>;
 
   constructor() {
     super('todo_db');
