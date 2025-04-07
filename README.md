@@ -37,4 +37,4 @@ A simple **Todo App** built with **React** and **TypeScript** to explore and und
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/indexed-db-workshop.git
+   git clone git@github.com:Abdelkaderbzz/indexed-db-workshop.git
