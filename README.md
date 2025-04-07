@@ -1,50 +1,40 @@
-# React + TypeScript + Vite
+# 🗂️ IndexedDB Workshop – Todo App with Dexie.js
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple **Todo App** built with **React** and **TypeScript** to explore and understand **IndexedDB** using [Dexie.js](https://dexie.org/). This project serves as a practical workshop focused on offline-first development and efficient client-side data storage.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- Add, edit, and delete todos
+- Data persistence using IndexedDB
+- Offline-friendly with full local data storage
+- Built using **Dexie.js** for simplified database operations
+- Clean and responsive UI with **React + TypeScript**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## 🛠️ Tech Stack
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React**
+- **TypeScript**
+- **Dexie.js**
+- **HTML5**
+- **CSS3** *(or styled-components / Tailwind if you used any library)*
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 📚 Learning Goals
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Learn how to use **IndexedDB** in modern web apps
+- Use **Dexie.js** to interact with IndexedDB in an easier way
+- Explore offline-first patterns in frontend development
+- Practice TypeScript with React functional components
+
+---
+
+## 📦 Setup Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/indexed-db-workshop.git
