@@ -1,7 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import Dexie, { Table } from 'dexie';
-import { Todo } from './App';
+import type { Todo } from './types';
 class TodoDatabase extends Dexie {
   todos!: Table<Todo, number>;
 
@@ -23,8 +21,8 @@ export const getTodos = async (): Promise<Todo[]> => {
 };
 
 // Function to add a new todo
-export const addTodo = async (todo: Omit<Todo, 'id'>) => {
-  return await db.todos.add(todo); // Add a new todo
+export const addTodo = async (todo: Omit<Todo, 'id'>): Promise<number> => {
+  return await db.todos.add(todo as Todo);
 };
 
 export const deleteTodo = async (id: number): Promise<void> => {
@@ -34,7 +32,7 @@ export const deleteTodo = async (id: number): Promise<void> => {
 export const searchTodos = async (searchTerm: string): Promise<Todo[]> => {
   return await db.todos
     .filter((todo) =>
-      todo.text.toLowerCase().includes(searchTerm.toLowerCase())
+      todo.text.toLowerCase().includes(searchTerm.toLowerCase()),
     )
     .toArray();
 };
@@ -47,7 +45,7 @@ export const toggleTodoCompleted = async (id: number): Promise<void> => {
 };
 
 export const filterTodosByCompleted = async (
-  isCompleted: boolean
+  isCompleted: boolean,
 ): Promise<Todo[]> => {
   return await db.todos
     .filter((todo) => todo.completed === isCompleted)

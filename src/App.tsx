@@ -7,13 +7,8 @@ import {
   toggleTodoCompleted,
   filterTodosByCompleted,
 } from './dexie';
+import type { Todo } from './types';
 import './App.css';
-
-export interface Todo {
-  id: number;
-  text: string;
-  completed: boolean;
-}
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
